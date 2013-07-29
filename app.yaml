@@ -37,3 +37,7 @@ inbound_services:
 
 error_handlers:
   - file: default_error.html
+  
+pagespeed: 
+    enabled_rewriters:
+        - InlineImages

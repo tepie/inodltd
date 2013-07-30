@@ -8,21 +8,13 @@ default_expiration: "1d"
 
 handlers:
 
+- url: /robots\.txt
+  static_files: robots.txt
+  upload: robots.txt
+
 - url: /favicon\.ico
   static_files: media/favicon.png
   upload: media/favicon.png
-  
-- url: /
-  static_files: index.html
-  upload: index.html
-  
-- url: /about.html
-  static_files: about.html
-  upload: about.html
-  
-- url: /work.html
-  static_files: work.html
-  upload: work.html
 
 - url: /bootstrap
   static_dir: bootstrap
@@ -31,7 +23,10 @@ handlers:
 - url: /media
   static_dir: media
   expiration: "1d"
-  
+
+- url: /.*
+  script: main.app
+
 inbound_services:
 - warmup
 

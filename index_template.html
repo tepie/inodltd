@@ -1,0 +1,94 @@
+{% extends "site_template.html" %}
+
+{% block header-nav %}
+<div class="masthead">
+    <ul class="nav nav-pills pull-right">
+    <li><a href="/">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="work.html">Our work</a></li>
+    </ul>
+    <h3 class="muted">Inside N Out Designs, LTD</h3>
+</div>
+{% endblock %}
+
+{% block header-content %}
+<div class="jumbotron">
+    <h1><img src="media/logo.jpg" alt="logo" /></h1>
+    <p class="lead">Inside N Out Designs is a building/remodeling company that specializes in both interior and exterior home improvement projects. Our goal is to meet your renovation needs through an enjoyable and professional process. Below are some building/remodeling ideas that Inside N Out can bring to life in order for you to enjoy your home at its fullest potential:</p>
+    <h2>Interior</h2>
+    <p class="lead">
+    Kitchens, Baths, Floors (wood, tile, laminates), Custom finished basements, Bedrooms and Offices
+    </p>
+    <h2>Exterior</h2>
+    <p class="lead">
+    Windows, Doors, Siding, Decks, Patios, Fountains and Retaining Walls, and Landscape design (mulch, bed design and plants)
+    </p>
+</div>
+{% endblock %}
+
+{% block body %}
+<div id="myCarousel" class="carousel slide">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+        <li data-target="#myCarousel" data-slide-to="5"></li>
+    </ol>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="media/deck_after_001.png" alt="">
+            <div class="carousel-caption">
+              <h4>Deck Construction</h4>
+              <p></p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="media/front_porch_rebuild_after_001.png" alt="">
+            <div class="carousel-caption">
+              <h4>Porch Rebuild</h4>
+              <p></p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="media/landscape_design_after_001.png" alt="">
+            <div class="carousel-caption">
+            <h4>Landscaping</h4>
+            <p></p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="media/patio_after_001.png" alt="">
+            <div class="carousel-caption">
+              <h4>Patio</h4>
+              <p></p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="media/patio_after_002.png" alt="">
+            <div class="carousel-caption">
+              <h4>Patio</h4>
+              <p></p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="media/deck_after_002-2.jpg" alt="">
+            <div class="carousel-caption">
+              <h4>Deck</h4>
+              <p></p>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+{% endblock %}
+
+{% block footer-script %}
+<script>
+$('.carousel').carousel()
+</script>
+{% endblock %}

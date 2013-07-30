@@ -16,15 +16,19 @@ class HomeHandler(webapp2.RequestHandler):
 class AboutHandler(webapp2.RequestHandler):
     def get(self): 
         _template_values = {}
-        _template_values["nav-active"] = "about.html"
         _path = os.path.join(os.path.dirname(__file__), 'about_template.html')
         self.response.out.write(template.render(_path, _template_values))
 
 class WorkHandler(webapp2.RequestHandler):
     def get(self): 
         _template_values = {}
-        _template_values["nav-active"] = "work.html"
         _path = os.path.join(os.path.dirname(__file__), 'work_template.html')
+        self.response.out.write(template.render(_path, _template_values))
+        
+class ContactHandler(webapp2.RequestHandler):
+    def get(self): 
+        _template_values = {}
+        _path = os.path.join(os.path.dirname(__file__), 'contact_template.html')
         self.response.out.write(template.render(_path, _template_values))
 
 app = webapp2.WSGIApplication( \
@@ -33,5 +37,6 @@ app = webapp2.WSGIApplication( \
     ('/index.html',HomeHandler), \
     ('/about.html',AboutHandler), \
     ('/work.html',WorkHandler), \
+    ('/contact.html',ContactHandler), \
     ], \
     debug=True)

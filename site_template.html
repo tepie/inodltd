@@ -7,63 +7,27 @@
     <meta name="description" content="Inside N Out Designs LTD, Cleveland, Ohio">
     <meta name="author" content="terrence pietrondi">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <style type="text/css">
-      body {
-        padding-top: 20px;
-        padding-bottom: 40px;
-      }
-
-      /* Custom container */
-      .container-narrow {
-        margin: 0 auto;
-        max-width: 700px;
-      }
-      .container-narrow > hr {
-        margin: 30px 0;
-      }
-
-      /* Main marketing message and sign up button */
-      .jumbotron {
-        margin: 60px 0;
-        text-align: center;
-      }
-      .jumbotron h1 {
-        font-size: 72px;
-        line-height: 1;
-      }
-      .jumbotron .btn {
-        font-size: 21px;
-        padding: 14px 24px;
-      }
-      
-      .jumbotron .lead {
-        text-align: left;
-      }
-
-      /* Supporting marketing content */
-      .marketing {
-        margin: 60px 0;
-      }
-      .marketing p + h4 {
-        margin-top: 28px;
-      }
-      
-      .nav-pills li a {
-        color: #000;
-      }
-      
-      .nav-pills li.active a {
-        background-color: #000;
-      } 
-      
-    </style>
     <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="static/site.css" rel="stylesheet" media="screen">
     <link rel="shortcut icon" href="media/favicon.png">
   </head>
   <body>
     <div class="container-narrow">
+    
+    
     {% block header-nav %}
+    <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+            <li><a href="/">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="work.html">Our work</a></li>
+        </ul>
+        {% block header-nav-content %}
+        {% endblock %}
+    </div>
     {% endblock %}
+    
+    
     {% block header-content %}
     {% endblock %}
     <hr>
@@ -83,20 +47,7 @@
    
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script>
-        var nav_path = window.location.pathname.substring(1,window.location.pathname.length);
-        if(nav_path == ""){
-            nav_path = "/";
-        }
-        
-        $("ul.nav > li > a").each(function(e){ 
-            if( $(this).attr("href") == nav_path ){
-                $(this).parent().addClass("active");
-            } else {
-                $(this).parent().removeClass("active");
-            } 
-        });
-    </script>
+    <script src="static/site.js"></script>
     {% block footer-script %}
     {% endblock %} 
   </body>

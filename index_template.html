@@ -1,15 +1,10 @@
 {% extends "site_template.html" %}
 
-{% block header-nav %}
-<div class="masthead">
-    <ul class="nav nav-pills pull-right">
-    <li><a href="/">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="work.html">Our work</a></li>
-    </ul>
-    <h3 class="muted">Inside N Out Designs, LTD</h3>
-</div>
+
+{% block header-nav-content %}
+<h3 class="muted">Inside N Out Designs, LTD</h3>
 {% endblock %}
+
 
 {% block header-content %}
 <div class="jumbotron">
@@ -88,7 +83,4 @@
 {% endblock %}
 
 {% block footer-script %}
-<script>
-$('.carousel').carousel()
-</script>
 {% endblock %}

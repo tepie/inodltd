@@ -8,7 +8,18 @@
 
 {% block header-content %}
 <div class="jumbotron">
-    <h1><img src="media/logo.jpg" alt="logo" /></h1>
+    <h1>
+         <span data-picture data-alt="Inside N Out Designs is a building/remodeling company that specializes in both interior and exterior home improvement projects.">
+            <span data-src="media/logo-low.jpg"></span>
+            <span data-src="media/logo-med.jpg" data-media="(min-width: 400px)"></span>
+            <span data-src="media/logo-med.jpg" data-media="(min-width: 800px)"></span>
+            <span data-src="media/logo.jpg" data-media="(min-width: 1000px)"></span>
+            <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+            <noscript>
+                <img src="media/logo-med.jpg" alt="Inside N Out Designs is a building/remodeling company that specializes in both interior and exterior home improvement projects." />
+            </noscript>
+        </span>
+    </h1>
     <p class="lead">Inside N Out Designs is a building/remodeling company that specializes in both interior and exterior home improvement projects. Our goal is to meet your renovation needs through an enjoyable and professional process. Below are some building/remodeling ideas that Inside N Out can bring to life in order for you to enjoy your home at its fullest potential:</p>
     <h2>Interior</h2>
     <p class="lead">

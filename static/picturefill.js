@@ -34,8 +34,26 @@
 					picImg.alt = ps[ i ].getAttribute( "data-alt" );
 				}
 
-				picImg.src =  matchedEl.getAttribute( "data-src" );
+				var wasoncevisable = picImg.dataset['wasoncevisable'];
+				/*if(!deferredalready){
+					picImg.src =  'media/1x1.gif';
+					picImg.dataset['defer'] = matchedEl.getAttribute( "data-src" );
+				} else {
+					picImg.src =  matchedEl.getAttribute( "data-src" );
+				}*/
+				
 				matchedEl.appendChild( picImg );
+				
+				if(isElementInViewport(picImg)){
+					//callbackDeferSrcChange(picImg);
+					picImg.src =  matchedEl.getAttribute( "data-src" );
+					picImg.dataset['wasoncevisable'] = true;
+				} else {
+					// no need to remove images that were already shown
+					if(!wasoncevisable){
+						picImg.src =  'media/1x1.gif';
+					}
+				} 
 			}
 			else if( picImg ){
 				picImg.parentNode.removeChild( picImg );
@@ -46,16 +64,44 @@
 
 	// Run on resize and domready (w.load as a fallback)
 	if( w.addEventListener ){
-		w.addEventListener( "resize", w.picturefill, false );
+		//w.addEventListener('DOMContentLoaded', w.picturefill, false); 
+    	w.addEventListener('load', w.picturefill, false); 
+    	w.addEventListener('scroll', w.picturefill, false); 
+    	w.addEventListener('resize', w.picturefill, false); 
+		
+		//w.addEventListener( "resize", w.picturefill, false );
 		w.addEventListener( "DOMContentLoaded", function(){
 			w.picturefill();
 			// Run once only
 			w.removeEventListener( "load", w.picturefill, false );
 		}, false );
-		w.addEventListener( "load", w.picturefill, false );
+		//w.addEventListener( "load", w.picturefill, false );
+		
 	}
 	else if( w.attachEvent ){
-		w.attachEvent( "onload", w.picturefill );
+		//w.attachEvent( "onload", w.picturefill );
+		w.attachEvent('onDOMContentLoaded', w.picturefill); // IE9+ :(
+		w.attachEvent('onload', w.picturefill);
+		w.attachEvent('onscroll', w.picturefill);
+		w.attachEvent('onresize', w.picturefill);
 	}
 
 }( this ));
+
+// http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport/7557433#7557433
+function isElementInViewport (el) {
+
+	//special bonus for those using jQuery
+	if (el instanceof jQuery) {
+		el = el[0];
+	}
+
+	var rect = el.getBoundingClientRect();
+
+	return (
+		rect.top >= 0 &&
+		rect.left >= 0 &&
+		rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
+		rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+	);
+}

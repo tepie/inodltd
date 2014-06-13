@@ -4,7 +4,7 @@ runtime: python27
 api_version: 1
 threadsafe: true
 
-default_expiration: "1d"
+default_expiration: "5d"
 
 handlers:
 
@@ -18,15 +18,15 @@ handlers:
 
 - url: /static
   static_dir: static
-  expiration: "1d"
+  expiration: "5d"
 
 - url: /bootstrap
   static_dir: bootstrap
-  expiration: "1d"
+  expiration: "5d"
   
 - url: /media
   static_dir: media
-  expiration: "1d"
+  expiration: "5d"
 
 - url: /.*
   script: main.app

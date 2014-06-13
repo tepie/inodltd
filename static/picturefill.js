@@ -35,17 +35,11 @@
 				}
 
 				var wasoncevisable = picImg.dataset['wasoncevisable'];
-				/*if(!deferredalready){
-					picImg.src =  'media/1x1.gif';
-					picImg.dataset['defer'] = matchedEl.getAttribute( "data-src" );
-				} else {
-					picImg.src =  matchedEl.getAttribute( "data-src" );
-				}*/
 				
+				// add to the document so we can determine if visible 
 				matchedEl.appendChild( picImg );
 				
 				if(isElementInViewport(picImg)){
-					//callbackDeferSrcChange(picImg);
 					picImg.src =  matchedEl.getAttribute( "data-src" );
 					picImg.dataset['wasoncevisable'] = true;
 				} else {

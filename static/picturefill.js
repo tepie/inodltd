@@ -40,12 +40,10 @@
 				matchedEl.appendChild( picImg );
 				
 				if(isElementInViewport(picImg)){
-					picImg.src =  matchedEl.getAttribute( "data-src" );
-					picImg.dataset['wasoncevisable'] = true;
-				} else {
-					// no need to remove images that were already shown
-					if(!wasoncevisable){
-						picImg.src =  'media/1x1.gif';
+					if(picImg.src !=  matchedEl.getAttribute( "data-src" )){
+						picImg.src =  matchedEl.getAttribute( "data-src" );
+						//console.log(picImg.src + " is now visible");
+						picImg.dataset['wasoncevisable'] = true;
 					}
 				} 
 			}

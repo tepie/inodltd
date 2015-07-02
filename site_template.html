@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Inside N Out Designs, LTD</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Inside N Out Designs LTD based out of Lyndhurst Ohio and offers their services primarily in Lake, Geauga and Cuyahoga County offering interior and exterior construction on kitchens, decks, landscaping, bathrooms, remodeling, flooring.">
-    <meta name="author" content="terrence pietrondi">
     <meta name="google-site-verification" content="rDRKgEOcwoSUYX7RPyOUSA4MN2KAPkd-3UkOEVafvIw" />
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" >
     <link href="static/site.css" rel="stylesheet" media="screen">
     <link rel="shortcut icon" href="media/favicon.png">
   </head>
   <body>
-    <div class="container-narrow">
+    <div class="container">
     
+    {% block header-nav-content %}
+    {% endblock %}
     
     {% block header-nav %}
-    <div class="masthead">
-        <ul class="nav nav-pills pull-right">
-            <li><a href="/">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="work.html">Our work</a></li>
-            <li><a href="contact.html">Contact</a></li>
+    <div class="header clearfix">
+    	<nav>
+        <ul class="nav nav-pills nav-justified">
+            <li role="presentation"><a href="/">Home</a></li>
+            <li role="presentation"><a href="about.html">About</a></li>
+            <li role="presentation"><a href="work.html">Our work</a></li>
+            <li role="presentation"><a href="contact.html">Contact</a></li>
         </ul>
-        {% block header-nav-content %}
-        {% endblock %}
+        </nav>
     </div>
     {% endblock %}
     
+    <hr>
     
     {% block header-content %}
     {% endblock %}
-    <hr>
+    
     
     {% block body %}  
     {% endblock %}
@@ -40,7 +42,7 @@
     
     {% block footer %}
     <div class="footer">
-    <p>&copy; Inside N Out Designs, LTD 2013 / 
+    <p>&copy; Inside N Out Designs, LTD 2015 / 
     <a href="mailto:insidenoutdesignsltd@gmail.com">insidenoutdesignsltd@gmail.com</a> / 
     <a href="tel:440-465-0785">440-465-0785</a></p>
     </div>
@@ -49,9 +51,6 @@
    
     <script defer src="//code.jquery.com/jquery.min.js"></script>
     <script defer src="bootstrap/js/bootstrap.min.js"></script>
-    
-    <script defer src="static/matchMedia.js"></script>
-    <script defer src="static/picturefill.js"></script>
     <script defer src="static/site.js"></script>
     
     {% block footer-script %}

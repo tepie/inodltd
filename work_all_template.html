@@ -1,0 +1,31 @@
+{% extends "about_template.html" %}
+
+{% block header-content %}
+{% endblock %}
+
+{% block body %}
+
+<ol class="breadcrumb">
+  <li><a href="work.html">Our Work</a></li>
+  <li class="active">View All</li>
+</ol>
+
+<div class="jumbotron">
+
+<h2>View All of Our Work</h2>
+<div class="row">
+{% for work in all_work %}
+
+    <div class="col-md-3">
+        <img class="img-responsive img-thumbnail" src="media/{{work}}" />
+    </div>
+
+{% if forloop.counter|divisibleby:4 %}
+</div>
+<div class="row">
+{% endif %}
+
+{% endfor %} 
+</div>
+</div>
+{% endblock %}

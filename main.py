@@ -8,6 +8,8 @@ import webapp2
 from google.appengine.ext.webapp import util
 from google.appengine.ext.webapp import template
 
+import work_view_all
+
 class HomeHandler(webapp2.RequestHandler):
     def get(self): 
         _template_values = {}
@@ -24,6 +26,13 @@ class WorkHandler(webapp2.RequestHandler):
     def get(self): 
         _template_values = {}
         _path = os.path.join(os.path.dirname(__file__), 'work_template.html')
+        self.response.out.write(template.render(_path, _template_values))
+
+class WorkViewAllHandler(webapp2.RequestHandler):
+    def get(self): 
+        _template_values = {}
+        _template_values["all_work"] = work_view_all.WORK_VIEW_ALL
+        _path = os.path.join(os.path.dirname(__file__), 'work_all_template.html')
         self.response.out.write(template.render(_path, _template_values))
 
 class WorkDetailHandler(webapp2.RequestHandler):
@@ -237,6 +246,8 @@ app = webapp2.WSGIApplication( \
     ('/work-ext-deck-construction.html',WorkDetailHandler), \
     ('/work-int-kitchen.html',WorkDetailHandler), \
     ('/work-int-repair.html',WorkDetailHandler), \
+    ('/work-view-all.html',WorkViewAllHandler), \
+    
     ('/contact.html',ContactHandler), \
     ], \
     debug=True)

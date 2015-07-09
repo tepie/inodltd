@@ -179,6 +179,29 @@ class WorkDetailHandler(webapp2.RequestHandler):
 
         elif self.request.path == "/work-int-kitchen.html":
             _template_values["work_detail_heading_title"] = "Interior Kitchen Remodeling"
+
+            _template_values["sections"] = []
+
+            section = {}
+            section["heading"] = "Kitchen Remodel"
+            section["before"] = None
+            section["after"] = ['interior_kitech_remodel_IMG_0291-thumb.jpg','interior_kitech_remodel_IMG_0290-thumb.jpg','interior_kitech_remodel_IMG_0289-thumb.jpg']
+
+            section["before_cols"] = 0
+            section["after_cols"] = int(math.floor(12 / len(section["after"])))
+
+            _template_values["sections"].append(section)
+
+            section = {}
+            section["heading"] = "Kitchen Remodel"
+            section["before"] = ['interior_room_kitchen_remodel_IMG_0292-thumb.jpg','interior_room_kitchen_remodel_IMG_0293-thumb.jpg','interior_room_kitchen_remodel_IMG_0298-thumb.jpg']
+            section["after"] = ['interior_room_kitchen_remodel_IMG_0295-thumb.jpg','interior_room_kitchen_remodel_IMG_0296-thumb.jpg','interior_room_kitchen_remodel_IMG_0300-thumb.jpg','interior_room_kitchen_remodel_IMG_0303-thumb.jpg']
+
+            section["before_cols"] = int(math.floor(12 / len(section["before"])))
+            section["after_cols"] = int(math.floor(12 / len(section["after"])))
+
+            _template_values["sections"].append(section)
+
         elif self.request.path == "/work-int-repair.html":
             _template_values["work_detail_heading_title"] = "Interior Repair"
 

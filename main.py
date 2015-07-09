@@ -99,6 +99,15 @@ class WorkDetailHandler(webapp2.RequestHandler):
             section["before_cols"] = 0
             section["after_cols"] = int(math.floor(12 / len(section["after"])))
 
+            _template_values["sections"].append(section)
+
+            section = {}
+            section["heading"] = "Exterior Brick Repair"
+            section["before"] = ['exterior_brick_repair_IMG_0250-thumb.jpg','exterior_brick_repair_IMG_0251-thumb.jpg']
+            section["after"] = ['exterior_brick_repair_IMG_0253-thumb.jpg','exterior_brick_repair_IMG_0254-thumb.jpg']
+
+            section["before_cols"] = int(math.floor(12 / len(section["before"])))
+            section["after_cols"] = int(math.floor(12 / len(section["after"])))
 
             _template_values["sections"].append(section)
 

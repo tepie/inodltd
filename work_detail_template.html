@@ -37,11 +37,7 @@
         {% if section.before %}
 
         <div class="row">
-            <div class="col-md-12"><h3>Before</h3></div>
-        </div>
-
-        <div class="row">
-            
+            <h3>Before</h3>
             {% for before in section.before %}
             <div class="col-md-{{section.before_cols}}">
                 <img class="img-responsive img-thumbnail" src="media/{{before}}" />
@@ -54,14 +50,12 @@
 
         {% if section.after %}
 
-        {% if section.before %}
-        <div class="row">
-            <div class="col-md-12"><h3>After</h3></div>
-        </div>
-        {% endif %}
-
         <div class="row">
             
+            {% if section.before %}
+            <h3>After</h3>
+            {% endif %}
+
             {% for after in section.after %}
             <div class="col-md-{{section.after_cols}}">
                 <img class="img-responsive img-thumbnail" src="media/{{after}}" />

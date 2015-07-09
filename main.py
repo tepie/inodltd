@@ -205,6 +205,18 @@ class WorkDetailHandler(webapp2.RequestHandler):
         elif self.request.path == "/work-int-repair.html":
             _template_values["work_detail_heading_title"] = "Interior Repair"
 
+            _template_values["sections"] = []
+
+            section = {}
+            section["heading"] = "Room Remodel"
+            section["before"] = ['interior_room_remodel_IMG_0257-thumb.jpg','interior_room_remodel_IMG_0258-thumb.jpg','interior_room_remodel_IMG_0261-thumb.jpg']
+            section["after"] = ['interior_room_remodel_IMG_0263-thumb.jpg','interior_room_remodel_IMG_0266-thumb.jpg','interior_room_remodel_IMG_0267-thumb.jpg']
+
+            section["before_cols"] = int(math.floor(12 / len(section["before"])))
+            section["after_cols"] = int(math.floor(12 / len(section["after"])))
+
+            _template_values["sections"].append(section)
+
 
         _path = os.path.join(os.path.dirname(__file__), 'work_detail_template.html')
         self.response.out.write(template.render(_path, _template_values))

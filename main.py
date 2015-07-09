@@ -147,6 +147,26 @@ class WorkDetailHandler(webapp2.RequestHandler):
 
             _template_values["sections"].append(section)
 
+            section = {}
+            section["heading"] = "Front Porch Rebuild"
+            section["before"] = ['front_porch_rebuild_before_001-thumb.png']
+            section["after"] = ['front_porch_rebuild_after_001-thumb.png']
+
+            section["before_cols"] = int(math.floor(12 / len(section["before"])))
+            section["after_cols"] = int(math.floor(12 / len(section["after"])))
+
+            _template_values["sections"].append(section)
+
+            section = {}
+            section["heading"] = "Draw Bridge Deck Steps"
+            section["before"] = None
+            section["after"] = ['exterior_deck_ramp_IMG_0273-thumb.jpg']
+
+            section["before_cols"] = 0
+            section["after_cols"] = int(math.floor(12 / len(section["after"])))
+
+            _template_values["sections"].append(section)
+
 
         elif self.request.path == "/work-int-kitchen.html":
             _template_values["work_detail_heading_title"] = "Interior Kitchen Remodeling"

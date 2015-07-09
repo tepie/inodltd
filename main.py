@@ -2,6 +2,7 @@
 
 import logging
 import os
+import math
 
 import webapp2
 from google.appengine.ext.webapp import util
@@ -24,6 +25,137 @@ class WorkHandler(webapp2.RequestHandler):
         _template_values = {}
         _path = os.path.join(os.path.dirname(__file__), 'work_template.html')
         self.response.out.write(template.render(_path, _template_values))
+
+class WorkDetailHandler(webapp2.RequestHandler):
+    def get(self): 
+        _template_values = {}
+
+        if self.request.path == "/work-ext-patios-landscaping.html":
+            _template_values["work_detail_heading_title"] = "Exterior Patios and Landscaping"
+
+            _template_values["sections"] = []
+            
+            section = {}
+            section["heading"] = "Pergola"
+            section["before"] = None
+            section["after"] = ['exterior_pergola_IMG_0283-thumb.jpg','exterior_pergola_IMG_0284-thumb.jpg','exterior_pergola_IMG_0286-thumb.jpg']
+            
+            section["before_cols"] = 0 #math.floor(12 / len(section["before"]))
+            section["after_cols"] = int(math.floor(12 / len(section["after"])))
+
+            _template_values["sections"].append(section)
+
+            section = {}
+            section["heading"] = "Walkway"
+            section["before"] = ['exterior_walkway_IMG_0310-med.jpg']
+            section["after"] = ['exterior_walkway_IMG_0249-med.jpg']
+
+            section["before_cols"] = int(math.floor(12 / len(section["before"])))
+            section["after_cols"] = int(math.floor(12 / len(section["after"])))
+
+            _template_values["sections"].append(section)
+
+            section = {}
+            section["heading"] = "Stone Landscaping"
+            section["before"] = ['exterior_stone_landscaping_IMG_0278-thumb.jpg','exterior_stone_landscaping_IMG_0279-thumb.jpg','exterior_stone_landscaping_IMG_0268-thumb.jpg']
+            section["after"] = ['exterior_stone_landscaping_IMG_0269-thumb.jpg',
+                'exterior_stone_landscaping_IMG_0270-thumb.jpg',
+                'exterior_stone_landscaping_IMG_0271-thumb.jpg',
+                'exterior_stone_landscaping_IMG_0272-thumb.jpg']
+                #'exterior_stone_landscaping_IMG_0274-thumb.jpg',
+                #'exterior_stone_landscaping_IMG_0275-thumb.jpg',
+                #'exterior_stone_landscaping_IMG_0276-thumb.jpg']
+
+            section["before_cols"] = int(math.floor(12 / len(section["before"])))
+            section["after_cols"] = int(math.floor(12 / len(section["after"])))
+
+            _template_values["sections"].append(section)
+
+            section = {}
+            section["heading"] = "Landscaping"
+            section["before"] = ['landscape_design_before_001-thumb.png']
+            section["after"] = ['landscape_design_after_001-thumb.png']
+
+            section["before_cols"] = int(math.floor(12 / len(section["before"])))
+            section["after_cols"] = int(math.floor(12 / len(section["after"])))
+
+            _template_values["sections"].append(section)
+
+            section = {}
+            section["heading"] = "Red Stone Patio"
+            section["before"] = None
+            section["after"] = ['patio_after_002-thumb.png']
+
+            section["before_cols"] = 0
+            section["after_cols"] = int(math.floor(12 / len(section["after"])))
+
+            _template_values["sections"].append(section)
+
+            section = {}
+            section["heading"] = "Grey Stone Patio"
+            section["before"] = None
+            section["after"] = ['patio_after_001-med.png']
+
+            section["before_cols"] = 0
+            section["after_cols"] = int(math.floor(12 / len(section["after"])))
+
+
+            _template_values["sections"].append(section)
+
+        elif self.request.path == "/work-ext-deck-construction.html":
+            _template_values["work_detail_heading_title"] = "Exterior Deck Construction"
+
+            _template_values["sections"] = []
+
+            section = {}
+            section["heading"] = "Deck with Side Fence"
+            section["before"] = ['deck_before_001-thumb.png','deck_mid_001-thumb.png','deck_mid_002-thumb.png']
+            section["after"] = ['deck_mid_003-thumb.png','deck_after_001-thumb.png']
+
+            section["before_cols"] = int(math.floor(12 / len(section["before"])))
+            section["after_cols"] = int(math.floor(12 / len(section["after"])))
+
+            _template_values["sections"].append(section)
+
+            section = {}
+            section["heading"] = "Deck with Front Bench"
+            section["before"] = ['deck_before_002-thumb.jpg']
+            section["after"] = ['deck_after_002-2-thumb.jpg','deck_after_002-1-thumb.jpg']
+
+            section["before_cols"] = int(math.floor(12 / len(section["before"])))
+            section["after_cols"] = int(math.floor(12 / len(section["after"])))
+
+            _template_values["sections"].append(section)
+
+            section = {}
+            section["heading"] = "Ground Level Deck"
+            section["before"] = ['exterior_deck_bench_step_IMG_0304-thumb.jpg','exterior_deck_bench_step_IMG_0314-thumb.jpg']
+            section["after"] = ['exterior_deck_bench_step_IMG_0313-thumb.jpg','exterior_deck_bench_step_IMG_0312-thumb.jpg']
+
+            section["before_cols"] = int(math.floor(12 / len(section["before"])))
+            section["after_cols"] = int(math.floor(12 / len(section["after"])))
+
+            _template_values["sections"].append(section)
+
+            section = {}
+            section["heading"] = "Small Deck"
+            section["before"] = ['exterior_small_deck_IMG_0264-thumb.jpg']
+            section["after"] = ['exterior_small_deck_IMG_0265-thumb.jpg']
+
+            section["before_cols"] = int(math.floor(12 / len(section["before"])))
+            section["after_cols"] = int(math.floor(12 / len(section["after"])))
+
+            _template_values["sections"].append(section)
+
+
+        elif self.request.path == "/work-int-kitchen.html":
+            _template_values["work_detail_heading_title"] = "Interior Kitchen Remodeling"
+        elif self.request.path == "/work-int-repair.html":
+            _template_values["work_detail_heading_title"] = "Interior Repair"
+
+
+        _path = os.path.join(os.path.dirname(__file__), 'work_detail_template.html')
+        self.response.out.write(template.render(_path, _template_values))
         
 class ContactHandler(webapp2.RequestHandler):
     def get(self): 
@@ -37,6 +169,10 @@ app = webapp2.WSGIApplication( \
     ('/index.html',HomeHandler), \
     ('/about.html',AboutHandler), \
     ('/work.html',WorkHandler), \
+    ('/work-ext-patios-landscaping.html',WorkDetailHandler), \
+    ('/work-ext-deck-construction.html',WorkDetailHandler), \
+    ('/work-int-kitchen.html',WorkDetailHandler), \
+    ('/work-int-repair.html',WorkDetailHandler), \
     ('/contact.html',ContactHandler), \
     ], \
     debug=True)

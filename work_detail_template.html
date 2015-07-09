@@ -11,166 +11,69 @@
 
 {% for section in sections %}
 
-<div class="row">
-    <div class="col-md-12"><h3>{{section.heading}}</h3></div>
-</div>
-
-{% if section.before %}
-
-<div class="row">
-    <div class="col-md-12"><h3>Before</h3></div>
-</div>
-
-<div class="row">
-    
-    {% for before in section.before %}
-    <div class="col-md-{{section.before_cols}}">
-        <img class="img-responsive img-thumbnail" src="media/{{before}}" />
+    <div class="row">
+        <div class="col-md-12"><h3>{{section.heading}}</h3></div>
     </div>
-    {% endfor %}    
-</div>
 
-{% endif %}
+    {% if section.before and section.after and section.before|length == 1 and section.after|length == 1 %}
+        
+        <div class="row">
+            <div class="col-md-6"><h3>Before</h3></div>
+            <div class="col-md-6"><h3>After</h3></div>
+        </div>
+        <div class="row">
+             <div class="col-md-6">
+                {% for before in section.before %}
+                <img class="img-responsive img-thumbnail" src="media/{{ before }}" />
+                {% endfor %}
+            </div>
+            <div class="col-md-6">
+                {% for after in section.after %}
+                <img class="img-responsive img-thumbnail" src="media/{{after}}" />
+                {% endfor %}
+            </div>
+        </div>
+
+    {% else %}
+
+        {% if section.before %}
+
+        <div class="row">
+            <div class="col-md-12"><h3>Before</h3></div>
+        </div>
+
+        <div class="row">
+            
+            {% for before in section.before %}
+            <div class="col-md-{{section.before_cols}}">
+                <img class="img-responsive img-thumbnail" src="media/{{before}}" />
+            </div>
+            {% endfor %}    
+        </div>
+
+        {% endif %}
 
 
-{% if section.after %}
+        {% if section.after %}
 
-<div class="row">
-    <div class="col-md-12"><h3>After</h3></div>
-</div>
+        {% if section.before %}
+        <div class="row">
+            <div class="col-md-12"><h3>After</h3></div>
+        </div>
+        {% endif %}
 
-<div class="row">
-    
-    {% for after in section.after %}
-    <div class="col-md-{{section.after_cols}}">
-        <img class="img-responsive img-thumbnail" src="media/{{after}}" />
-    </div>
-    {% endfor %}    
-</div>
+        <div class="row">
+            
+            {% for after in section.after %}
+            <div class="col-md-{{section.after_cols}}">
+                <img class="img-responsive img-thumbnail" src="media/{{after}}" />
+            </div>
+            {% endfor %}    
+        </div>
 
-{% endif %}
+        {% endif %}
 
+    {% endif %}
 {% endfor %}
 
-<!--
-
-<div class="row">
-    <div class="col-md-12"><h3>Front Porch Before and After</h3></div>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-    	<img class="img-responsive img-thumbnail" src="media/front_porch_rebuild_before_001-thumb.png" />
-    </div>
-    <div class="col-md-4">
-        <img class="img-responsive img-thumbnail" src="media/front_porch_rebuild_after_001-thumb.png" />        
-    </div>
-    <div class="col-md-4">
-		<img class="img-responsive img-thumbnail" src="media/front_porch_rebuild_after_001-1-thumb.png" />
-    </div>
-</div>
-
-<hr>
-
-<div class="row">
-    <div class="col-md-12"><h3>Home Repair Before and After</h3></div>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <img class="img-responsive img-thumbnail" src="media/home_repair_remodel_before_001-thumb.png" />
-    </div>
-    <div class="col-md-6">
-        <img class="img-responsive img-thumbnail" src="media/home_repair_remodel_after_001-thumb.png" />
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <img class="img-responsive img-thumbnail" src="media/home_repair_remodel_before_002-thumb.png" />
-    </div>
-    <div class="col-md-6">
-        <img class="img-responsive img-thumbnail" src="media/home_repair_remodel_after_002-thumb.png" />
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <img class="img-responsive img-thumbnail" src="media/home_repair_remodel_before_003-thumb.png" />
-    </div>
-    <div class="col-md-6">
-         <img class="img-responsive img-thumbnail" src="media/home_repair_remodel_after_003-thumb.png" />
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <img class="img-responsive img-thumbnail" src="media/home_repair_remodel_before_004-thumb.png" />
-    </div>
-    <div class="col-md-6">
-        <img class="img-responsive img-thumbnail" src="media/home_repair_remodel_after_004-thumb.png" />
-    </div>
-</div>
-
-<hr>
-
-
-<div class="row">
-    <div class="col-md-12"><h3>Landscape Design Repair Before and After</h3></div>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <img class="img-responsive img-thumbnail" src="media/landscape_design_before_001-thumb.png" />
-    </div>
-    <div class="col-md-4">
-        <img class="img-responsive img-thumbnail" src="media/landscape_design_after_001-thumb.png" />
-    </div>    
-    <div class="col-md-4">
-        <img class="img-responsive img-thumbnail" src="media/landscape_design_after_001-thumb.png" />
-    </div>
-</div>
-
-<hr>
-
-<div class="row">
-    <div class="col-md-12"><h3>Decks Before and After</h3></div>
-</div>
-
-<div class="row">
-    <div class="col-md-3">
-    	<img class="img-responsive img-thumbnail" src="media/deck_before_001-thumb.png" />
-    </div>
-    <div class="col-md-3">
-        <img class="img-responsive img-thumbnail" src="media/deck_mid_001-thumb.png" />
-    </div>
-    <div class="col-md-3">
-       	<img class="img-responsive img-thumbnail" src="media/deck_mid_002-thumb.png" />
-    </div>
-    <div class="col-md-3">
-   		<img class="img-responsive img-thumbnail" src="media/deck_mid_003-thumb.png" />
-    </div>
-    
-</div>
-
-<div class="row">
-    <div class="col-md-12">&nbsp;</div>
-</div>
-
-
-<div class="row">
-    <div class="col-md-4">
-        <img class="img-responsive img-thumbnail" src="media/deck_before_002-thumb.jpg" />
-    </div>
-    <div class="col-md-4">
-    	<img class="img-responsive img-thumbnail" src="media/deck_after_002-1-thumb.jpg" />
-    </div>
-    <div class="col-md-4">
-        <img class="img-responsive img-thumbnail" src="media/deck_after_002-2-thumb.jpg" />
-    </div>
-</div>
-
-</div>
-
--->
 {% endblock %}

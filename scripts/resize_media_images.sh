@@ -23,3 +23,6 @@ find . -name "*.jpg" | grep -v "\-low" | grep -v "\-med" |  grep -v "\-thumb" | 
 
 #thumb jpg
 find . -name "*.jpg" | grep -v "\-low" | grep -v "\-med" | grep -v "\-thumb" | sed 's/\.jpg$//' | awk -F ' ' '{print "convert "$1".jpg -thumbnail 400x300! "$1"-thumb.jpg"}' | sh
+
+
+convert exterior_walkway_IMG_0249.jpg -thumbnail 400x300! exterior_walkway_IMG_0249-thumb.jpg

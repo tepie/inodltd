@@ -15,4 +15,6 @@ $(document).ready(function() {
 	if( $('.carousel').length > 0) {
 		$('.carousel').carousel();
 	}
+
+	$("img.lazy").lazy();
 });

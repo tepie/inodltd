@@ -17,7 +17,7 @@
 {% for work in all_work %}
 
     <div class="col-md-3">
-        <img class="img-responsive img-thumbnail" src="media/{{work}}" />
+        <img class="lazy img-responsive img-thumbnail" data-src="media/{{work}}" src="" />
     </div>
 
 {% if forloop.counter|divisibleby:4 %}

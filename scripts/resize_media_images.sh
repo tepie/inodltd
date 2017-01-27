@@ -19,7 +19,7 @@ rm exec_resize.sh
 find . -name "*.jpg" | grep -v "\-low" | grep -v "\-med" |  grep -v "\-thumb" | sed 's/\.jpg$//' | awk -F ' ' '{print "convert "$1".jpg -resize 30% "$1"-low.jpg"}' | sh
 
 # med jpg
-find . -name "*.jpg" | grep -v "\-low" | grep -v "\-med" |  grep -v "\-thumb" | sed 's/\.jpg$//' | awk -F ' ' '{print "convert "$1".jpg -resize 50% "$1"-med.jpg"}' | sh
+find . -name "*.JPG" | grep -v "\-low" | grep -v "\-med" |  grep -v "\-thumb" | sed 's/\.JPG$//' | awk -F ' ' '{print "convert "$1".JPG -resize 50% "$1"-med.JPG"}' | sh
 
 #thumb jpg
 find . -name "*.jpg" | grep -v "\-low" | grep -v "\-med" | grep -v "\-thumb" | sed 's/\.jpg$//' | awk -F ' ' '{print "convert "$1".jpg -thumbnail 400x300! "$1"-thumb.jpg"}' | sh
